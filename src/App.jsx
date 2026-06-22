@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 
 // Lazy load non-critical components to reduce the initial bundle size
 const Certification = React.lazy(() => import('./components/Certification'));
-const MyProjects = React.lazy(() => import('./components/MyProjects'));
+const MyProjects = React.lazy(() => import('./components/MyProject'));
 const Contact = React.lazy(() => import('./components/Contact'));
 const Footer = React.lazy(() => import('./components/Footer'));
 import { useInView } from 'react-intersection-observer';
