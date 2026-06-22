@@ -1,6 +1,6 @@
 import { HelmetProvider } from 'react-helmet-async';
 import { createRoot } from 'react-dom/client';
-import './app.css';
+import './App.css';
 import App from './App.jsx';
 
 import 'swiper/css';
