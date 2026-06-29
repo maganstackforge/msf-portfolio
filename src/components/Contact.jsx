@@ -26,7 +26,7 @@ export default function Contact() {
               <span className='text-blue-400' aria-hidden='true'>
                 <LuMail size={20} />
               </span>
-              magan.stackforge@gmail.com
+              procoderxs@gmail.com
             </p>
             <p className='flex items-center gap-3'>
               <span className='text-blue-400' aria-hidden='true'>
@@ -42,10 +42,10 @@ export default function Contact() {
             </p>
           </div>
           <div className='mt-6 flex gap-4'>
-            <Button href='https://github.com/Maganstackforge' ariaLabel='Visit my GitHub profile'>
+            <Button href='https://github.com/theprocoderx' ariaLabel='Visit my GitHub profile'>
               <FaGithub size={30} aria-hidden='true' />
             </Button>
-            <Button href='https://www.linkedin.com/in/maganstackforge' ariaLabel='Visit my LinkedIn profile'>
+            <Button href='https://www.linkedin.com/in/procoderx' ariaLabel='Visit my LinkedIn profile'>
               <FaLinkedin size={30} aria-hidden='true' />
             </Button>
           </div>

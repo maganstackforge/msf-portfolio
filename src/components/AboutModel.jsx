@@ -16,23 +16,23 @@ export default function AboutModal({ isModalOpen, onClose }) {
   const frontendSkills = [
     'HTML5',
     'CSS3',
-    'JavaScript',
+    'JavaScript (ES6+)',
     'React.js',
+    'Tailwind CSS',
     'Redux Toolkit',
-    'Bootstrap',
-    'Tailwind',
+    'Context API',
     'React Router',
   ];
-  const tools = ['Git', 'Github', 'VS Code', 'Vite', 'Figma', 'Netlify', 'Vercel'];
+  const tools = ['Git', 'GitHub', 'Vite', 'ESLint', 'Prettier', 'Postman', 'Figma', 'Vercel'];
   const coreConcepts = [
     'Responsive Design',
     'REST API Integration',
-    'SEO Optimization',
     'Performance Optimization',
     'Lazy Loading',
     'Code Splitting',
-    'Component-Based Architecture',
     'Accessibility',
+    'SEO',
+    'Semantic HTML',
   ];
   return (
     <>
@@ -60,9 +60,9 @@ export default function AboutModal({ isModalOpen, onClose }) {
                     <h2 className='about-me-title w-full text-3xl font-bold text-[#00f2fe]'>About Me</h2>
                     <div className='w-full px-2 sm:px-6'>
                       <p className='my-3 w-full max-w-xl text-left text-sm leading-7 sm:text-base'>
-                        "I build pixel-perfect, responsive, and SEO-friendly web applications using React.js,
-                        JavaScript, and Tailwind CSS. I am passionate about writing clean, maintainable code
-                        to deliver high-performance user experiences."
+                        I build responsive, accessible, and high-performance web applications using React.js,
+                        JavaScript, and Tailwind CSS. I focus on clean architecture, reusable components, SEO
+                        best practices, and delivering exceptional user experiences.
                       </p>
                     </div>
                     <div className='py-4'>
@@ -71,7 +71,10 @@ export default function AboutModal({ isModalOpen, onClose }) {
                       <h3 className='px-4 text-xl font-bold'>Namrata Universal | Nov 2025 – Present</h3>
 
                       <ul className='px-4 text-base'>
-                        <li>• Developed responsive web interfaces using React.js and Tailwind CSS.</li>{' '}
+                        <li>
+                          • Developed modular, responsive, and production-ready user interfaces using React.js
+                          and Tailwind CSS.
+                        </li>{' '}
                         <li>• Integrated REST APIs and improved UI performance.</li>{' '}
                         <li>• Implemented SEO best practices and optimized page loading.</li>
                         <li> • Collaborated on modern, user-friendly web applications.</li>

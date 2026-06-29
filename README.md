@@ -8,11 +8,12 @@ It showcases my projects, skills, certifications, and frontend development journ
 
 ## 🔗 Important Links
 
-🌐 Portfolio Website: https://maganstackforge.vercel.app/  
-💻 GitHub Profile: https://github.com/maganstackforge  
-📂 Project Repository: https://github.com/maganstackforge/msf-portfolio  
-👤 LinkedIn: https://linkedin.com/in/maganstackforge  
-📧 Email: magan.stackforge@gmail.com
+🌐 Portfolio Website: https://theprocoderx.vercel.app/  
+💻 Repository: https://github.com/theprocoderx/msf-portfolio
+👨‍💻 Portfolio: https://procoderx.com
+🐙 GitHub: https://github.com/theprocoderx
+💼 LinkedIn: https://linkedin.com/in/procoderx
+📧 Email: procoderxs@gmail.com
 
 ---
 

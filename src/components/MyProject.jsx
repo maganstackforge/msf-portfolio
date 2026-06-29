@@ -16,7 +16,7 @@ const projects = [
 
     liveLink: 'https://furnilo.vercel.app/',
 
-    repoLink: 'https://github.com/maganstackforge/furnilo-ecommerce',
+    repoLink: 'https://github.com/theprocoderx/furnilo-ecommerce',
     pageSpeedLink:
       'https://pagespeed.web.dev/analysis/https-furnilo-vercel-app/20gete6mh1?form_factor=desktop',
 
@@ -53,7 +53,7 @@ const projects = [
 
     liveLink: 'https://namrataunivers.netlify.app/',
 
-    repoLink: 'https://github.com/maganstackforge/namrata-univers',
+    repoLink: 'https://github.com/theprocoderx/namrata-univers',
 
     pageSpeedLink:
       'https://pagespeed.web.dev/analysis/https-namrataunivers-netlify-app/ggm2w9d9gu?form_factor=desktop',
@@ -92,7 +92,7 @@ const projects = [
 
     liveLink: 'https://globescope.netlify.app/',
 
-    repoLink: 'https://github.com/maganstackforge/GlobeScope',
+    repoLink: 'https://github.com/theprocoderx/GlobeScope',
 
     pageSpeedLink:
       'https://pagespeed.web.dev/analysis/https-globescope-netlify-app/bqy8fuevvt?form_factor=desktop',
@@ -131,7 +131,7 @@ const projects = [
 
     liveLink: 'https://mstrackify.netlify.app/',
 
-    repoLink: 'https://github.com/maganstackforge/TrackifyApp',
+    repoLink: 'https://github.com/theprocoderx/TrackifyApp',
 
     pageSpeedLink:
       'https://pagespeed.web.dev/analysis/https-mstrackify-netlify-app-home/k0skw154uk?form_factor=desktop',
@@ -161,7 +161,7 @@ const projects = [
 
     liveLink: 'https://msquizforge.vercel.app/',
 
-    repoLink: 'https://github.com/maganstackforge/msquizforge',
+    repoLink: 'https://github.com/theprocoderx/msquizforge',
 
     pageSpeedLink:
       'https://pagespeed.web.dev/analysis/https-msquizforge-vercel-app/ninyh05fwa?form_factor=mobile',

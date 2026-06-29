@@ -1,13 +1,39 @@
 import { lazy, useEffect, useState, Suspense } from 'react';
 import Button from '../animations/Button';
 
-// Core Dynamic Lazy Components
+// Core dynamic lazy-loaded components
 const MatterScene = lazy(() => import('../animations/MatterScene'));
 const AboutModal = lazy(() => import('./AboutModel'));
+
+// Configuration array for social links to eliminate DOM/SVG repetition
+const SOCIAL_LINKS = [
+  {
+    id: 'linkedin',
+    href: 'https://www.linkedin.com/in/procoderx/',
+    label: 'Visit my LinkedIn profile',
+    viewBox: '0 0 448 512',
+    path: 'M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z',
+  },
+  {
+    id: 'email',
+    href: 'mailto:procoderxs@gmail.com',
+    label: 'Send me an email',
+    viewBox: '0 0 512 512',
+    path: 'M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z',
+  },
+  {
+    id: 'github',
+    href: 'https://www.github.com/theprocoderx',
+    label: 'Visit my GitHub profile',
+    viewBox: '0 0 496 512',
+    path: 'M248 8C111 8 0 119 0 256c0 109.8 71.2 202.9 170 235.8 12.4 2.3 17-5.4 17-12v-42.2c-69.2 15-83.8-33.4-83.8-33.4-11.3-28.7-27.6-36.4-27.6-36.4-22.5-15.4 1.7-15.1 1.7-15.1 24.9 1.8 38 25.6 38 25.6 22.2 38 58.2 27 72.4 20.7 2.2-16.1 8.7-27 15.8-33.2-55.2-6.3-113.3-27.6-113.3-122.8 0-27.1 9.7-49.2 25.5-66.5-2.6-6.3-11-31.5 2.4-65.7 0 0 20.8-6.7 68.2 25.4 19.8-5.5 41-8.2 62.1-8.3 21 .1 42.3 2.8 62.1 8.3 47.3-32.1 68.1-25.4 68.1-25.4 13.5 34.2 5.1 59.4 2.5 65.7 15.9 17.3 25.5 39.4 25.5 66.5 0 95.4-58.2 116.5-113.6 122.7 8.9 7.7 16.8 22.9 16.8 46.1v68.3c0 6.7 4.5 14.4 17.2 12C424.9 458.8 496 365.7 496 256 496 119 385 8 248 8z',
+  },
+];
 
 const HeroSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Prevent background scrolling when modal layer is active
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = 'hidden';
@@ -34,14 +60,13 @@ const HeroSection = () => {
           className='pointer-events-auto transition-transform hover:scale-105'
         >
           <img
-            src='/msf-logo.webp'
+            src='/procoderx-logo.png'
             alt='Logo'
             loading='eager'
             decoding='sync'
-            //  2. Always set width + height
             width='64'
             height='64'
-            className='h-16 w-16 rounded-2xl bg-white object-contain p-1 [contain:layout_paint]'
+            className='contain:[layout_paint] h-16 w-16 rounded-2xl bg-white object-contain'
           />
         </a>
 
@@ -49,7 +74,6 @@ const HeroSection = () => {
         <div className='relative flex gap-4 text-white'>
           <Button
             href='/Magan_Singh_Frontend_Developer_Resume.pdf'
-            download={true}
             aria-label='Download resume of Magan Singh'
           >
             Resume
@@ -59,22 +83,23 @@ const HeroSection = () => {
 
       {/* Hero Core Content */}
       <div className='mx-auto my-auto flex w-11/12 overflow-hidden'>
-        {/*  MASTER RESPONSIVE WRAPPER WITH CONTAINMENT */}
+        {/* Master responsive picture component handling multi-resolution asset delivery */}
         <picture className='pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 select-none md:top-1/2'>
-          {/* Laptop/Badi screen ke liye */}
-          <source media='(min-width: 1024px)' srcSet='/msf-logo-96.webp' />
-          {/* Tablet ke liye */}
-          <source media='(min-width: 640px)' srcSet='/msf-logo-68.webp' />
-          {/* Default / Mobile ke liye (148px) */}
+          {/* Large screens / Laptops */}
+          <source media='(min-width: 1024px)' srcSet='/procoderx-logo-96.webp' />
+          {/* Tablets */}
+          <source media='(min-width: 640px)' srcSet='/procoderx-logo-68.webp' />
+          {/* Default mobile viewports */}
           <img
-            src='/msf-logo-148.webp'
+            src='/procoderx-logo-74.webp'
             alt='Magan Singh Logo'
             loading='eager'
             decoding='async'
-            className='h-[148px] w-[148px] object-contain sm:h-68 sm:w-68 md:max-w-full lg:h-96 lg:w-96'
+            className='h-37 w-37 object-contain sm:h-68 sm:w-68 md:max-w-full lg:h-96 lg:w-96'
           />
         </picture>
-        {/* Content Panel: Optimized margins to fit seamlessly on smaller iPhone/Android viewports */}
+
+        {/* Content Panel: Optimized margins to fit seamlessly on smaller viewport sizes */}
         <div className='z-10 mx-auto flex w-full max-w-7xl items-center justify-between'>
           <div className='flex flex-col gap-1 px-2 text-white'>
             <h2 className='pointer-events-none text-4xl leading-tight sm:text-5xl'>
@@ -123,56 +148,28 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Social Icons Stack */}
+          {/* Social Icons Stack mapped dynamically from configuration array */}
           <ul className='flex flex-col items-center justify-center gap-8 px-4 text-[#b0b2c3] sm:self-auto lg:gap-16'>
-            <li>
-              <a
-                href='https://www.linkedin.com/in/maganstackforge/'
-                target='_blank'
-                rel='noopener noreferrer'
-                aria-label='Visit my LinkedIn profile'
-                className='transition-colors hover:text-white'
-              >
-                <svg className='h-9 w-9' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'>
-                  <path
-                    fill='currentColor'
-                    d='M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z'
-                  />
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a
-                href='mailto:magan.stackforge@gmail.com'
-                aria-label='Send me an email'
-                className='transition-colors hover:text-white'
-              >
-                <svg className='h-9 w-9' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
-                  <path
-                    fill='currentColor'
-                    d='M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z'
-                  />
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a
-                href='https://www.github.com/maganstackforge'
-                target='_blank'
-                rel='noopener noreferrer'
-                aria-label='Visit my GitHub profile'
-                className='transition-colors hover:text-white'
-              >
-                <svg
-                  className='h-9 w-9'
-                  xmlns='http://www.w3.org/2000/svg'
-                  viewBox='0 0 496 512'
-                  fill='currentColor'
+            {SOCIAL_LINKS.map(({ id, href, label, viewBox, path }) => (
+              <li key={id}>
+                <a
+                  href={href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label={label}
+                  className='transition-colors duration-300 hover:text-white'
                 >
-                  <path d='M248 8C111 8 0 119 0 256c0 109.8 71.2 202.9 170 235.8 12.4 2.3 17-5.4 17-12v-42.2c-69.2 15-83.8-33.4-83.8-33.4-11.3-28.7-27.6-36.4-27.6-36.4-22.5-15.4 1.7-15.1 1.7-15.1 24.9 1.8 38 25.6 38 25.6 22.2 38 58.2 27 72.4 20.7 2.2-16.1 8.7-27 15.8-33.2-55.2-6.3-113.3-27.6-113.3-122.8 0-27.1 9.7-49.2 25.5-66.5-2.6-6.3-11-31.5 2.4-65.7 0 0 20.8-6.7 68.2 25.4 19.8-5.5 41-8.2 62.1-8.3 21 .1 42.3 2.8 62.1 8.3 47.3-32.1 68.1-25.4 68.1-25.4 13.5 34.2 5.1 59.4 2.5 65.7 15.9 17.3 25.5 39.4 25.5 66.5 0 95.4-58.2 116.5-113.6 122.7 8.9 7.7 16.8 22.9 16.8 46.1v68.3c0 6.7 4.5 14.4 17.2 12C424.9 458.8 496 365.7 496 256 496 119 385 8 248 8z' />
-                </svg>
-              </a>
-            </li>
+                  <svg
+                    className='h-9 w-9'
+                    aria-hidden='true'
+                    xmlns='http://www.w3.org/2000/svg'
+                    viewBox={viewBox}
+                  >
+                    <path fill='currentColor' d={path} />
+                  </svg>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -185,7 +182,7 @@ const HeroSection = () => {
       )}
 
       {/* Bottom Navigation Control */}
-      <div className="relative flex w-11/12 justify-center self-center after:absolute after:top-[100px] after:left-1/2 after:h-5 after:w-[2px] after:-translate-x-1/2 after:bg-[#444] after:content-['']">
+      <div className="relative flex w-11/12 justify-center self-center after:absolute after:top-25 after:left-1/2 after:h-5 after:w-0.5 after:-translate-x-1/2 after:bg-[#444] after:content-['']">
         <Button
           onClick={() => {
             const projectSection = document.getElementById('myProject');
