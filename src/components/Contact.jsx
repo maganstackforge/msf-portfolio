@@ -5,7 +5,7 @@ export default function Contact() {
   // Handle form submission safely
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here (e.g., Formspree, Web3Forms, or EmailJS)
+    // Add form submission logic here (e.g., Formspree, Web3Forms, or EmailJS)
   };
 
   return (

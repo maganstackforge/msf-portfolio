@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import HeroSection from './components/HeroSection';
-import { Helmet } from 'react-helmet-async';
 
 // Lazy load non-critical components to reduce the initial bundle size
 const Certification = React.lazy(() => import('./components/Certification'));
@@ -22,48 +21,32 @@ function App() {
 
   return (
     <>
-      <Helmet>
-        <title>Magan Singh | Frontend Developer</title>
-
-        <meta
-          name='description'
-          content='Magan Singh Frontend Developer Portfolio showcasing React.js, JavaScript, Tailwind CSS projects and web development skills.'
-        />
-      </Helmet>
-
       <main className='w-full overflow-x-hidden text-white'>
         {/* 
         HeroSection is loaded immediately because it appears above the fold. 
         This critical rendering helps optimize the Largest Contentful Paint (LCP). 
       */}
         <HeroSection />
-        <div ref={ref}>
-          {inView && (
-            <Suspense fallback={<PageLoader />}>
-              <MyProjects />
-            </Suspense>
-          )}
-        </div>
-        <div ref={ref}>
-          {inView && (
-            <Suspense fallback={<PageLoader />}>
-              <Certification />
-            </Suspense>
-          )}
-        </div>
 
         <div ref={ref}>
           {inView && (
-            <Suspense fallback={<PageLoader />}>
-              <Contact />
-            </Suspense>
-          )}
-        </div>
-        <div ref={ref}>
-          {inView && (
-            <Suspense fallback={<PageLoader />}>
-              <Footer />
-            </Suspense>
+            <>
+              <Suspense fallback={<PageLoader />}>
+                <MyProjects />
+              </Suspense>
+
+              <Suspense fallback={<PageLoader />}>
+                <Certification />
+              </Suspense>
+
+              <Suspense fallback={<PageLoader />}>
+                <Contact />
+              </Suspense>
+
+              <Suspense fallback={<PageLoader />}>
+                <Footer />
+              </Suspense>
+            </>
           )}
         </div>
       </main>

@@ -1,9 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 import freeCodeCamp from '../assets/images/free-code-camp.svg';
 import qrImageJS from '../assets/images/qr-image-js.webp';
 import qrImageCSS from '../assets/images/qr-image-css.webp';

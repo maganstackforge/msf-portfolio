@@ -1,14 +1,14 @@
-import { HelmetProvider } from 'react-helmet-async';
-import { createRoot } from 'react-dom/client';
-import './App.css';
-import App from './App.jsx';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+import { createRoot } from 'react-dom/client';
+import './App.css';
+import App from './App.jsx';
+import React from 'react';
+
 createRoot(document.getElementById('root')).render(
-  <HelmetProvider>
+  <React.StrictMode>
     <App />
-  </HelmetProvider>
+  </React.StrictMode>
 );

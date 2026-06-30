@@ -36,7 +36,7 @@ export default function AboutModal({ isModalOpen, onClose }) {
   ];
   return (
     <>
-      {/* 1. Backdrop Overlay: Ispar click karne se bhi modal close ho jayega */}
+      {/* Backdrop overlay: Clicking this will also close the modal */}
       <div className='fixed inset-0 z-50 overflow-y-auto bg-black/80' onClick={onClose}>
         <div className='w-full' onClick={(e) => e.stopPropagation()}>
           {/* 2. Main Modal Content */}
